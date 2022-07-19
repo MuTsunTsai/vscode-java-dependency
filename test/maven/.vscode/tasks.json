@@ -3,7 +3,7 @@
     "tasks": [
         {
             "type": "java",
-            "label": "java: exportjar:maven",
+            "label": "java (export): maven",
             "mainClass": "com.mycompany.app.App",
             "targetPath": "${workspaceFolder}/${workspaceFolderBasename}.jar",
             "elements": [

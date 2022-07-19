@@ -491,7 +491,7 @@
         {
           "command": "java.project.build.workspace",
           "when": "view == javaProjectExplorer && viewItem =~ /java:project(?=.*?\\b\\+java\\b)(?=.*?\\b\\+uri\\b)/",
-          "group":"8_execution@5"
+          "group": "8_execution@5"
         },
         {
           "command": "java.project.rebuild",
@@ -619,6 +619,63 @@
     "taskDefinitions": [
       {
         "type": "java",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "%taskDefinitions.java.project.exportJar.label%"
+          },
+          "mainClass": {
+            "type": "string",
+            "description": "%taskDefinitions.java.project.exportJar.mainClass%"
+          },
+          "targetPath": {
+            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "${workspaceFolder}/${workspaceFolderBasename}.jar",
+                  ""
+                ],
+                "enumDescriptions": [
+                  "%configuration.java.project.exportJar.targetPath.workspaceFolder%",
+                  "%configuration.java.project.exportJar.targetPath.select%"
+                ]
+              }
+            ],
+            "description": "%configuration.java.project.exportJar.targetPath.customization%"
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "enum": [
+                    "${compileOutput}",
+                    "${testCompileOutput}",
+                    "${dependencies}",
+                    "${testDependencies}"
+                  ],
+                  "enumDescriptions": [
+                    "%taskDefinitions.java.project.exportJar.compileOutput%",
+                    "%taskDefinitions.java.project.exportJar.testCompileOutput%",
+                    "%taskDefinitions.java.project.exportJar.dependencies%",
+                    "%taskDefinitions.java.project.exportJar.testDependencies%"
+                  ]
+                }
+              ]
+            },
+            "description": "%taskDefinitions.java.project.exportJar.elements%"
+          }
+        }
+      },
+      {
+        "type": "java (export)",
         "properties": {
           "label": {
             "type": "string",

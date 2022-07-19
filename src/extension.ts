@@ -9,7 +9,7 @@ import { Context, ExtensionName } from "./constants";
 import { LibraryController } from "./controllers/libraryController";
 import { ProjectController } from "./controllers/projectController";
 import { init as initExpService } from "./ExperimentationService";
-import { ExportJarTaskProvider } from "./exportJarSteps/ExportJarTaskProvider";
+import { DeprecatedExportJarTaskProvider, ExportJarTaskProvider } from "./exportJarSteps/ExportJarTaskProvider";
 import { Settings } from "./settings";
 import { syncHandler } from "./syncHandler";
 import { EventCounter } from "./utility";
@@ -38,6 +38,7 @@ async function activateExtension(_operationId: string, context: ExtensionContext
     context.subscriptions.push(DependencyExplorer.getInstance(context));
     context.subscriptions.push(contextManager);
     context.subscriptions.push(syncHandler);
+    context.subscriptions.push(tasks.registerTaskProvider(DeprecatedExportJarTaskProvider.type, new DeprecatedExportJarTaskProvider()));
     context.subscriptions.push(tasks.registerTaskProvider(ExportJarTaskProvider.exportJarType, new ExportJarTaskProvider()));
     context.subscriptions.push(tasks.registerTaskProvider(BuildTaskProvider.type, new BuildTaskProvider()));
 }
