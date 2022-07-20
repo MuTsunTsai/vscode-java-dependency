@@ -619,6 +619,7 @@
     "taskDefinitions": [
       {
         "type": "java",
+        "when": "java:showDeprecatedTasks",
         "properties": {
           "label": {
             "type": "string",

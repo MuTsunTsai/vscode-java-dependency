@@ -6,6 +6,7 @@ export namespace Context {
     export const LANGUAGE_SUPPORT_INSTALLED: string = "java:languageSupportInstalled";
     export const NO_JAVA_PROJECT: string = "java:noJavaProjects";
     export const WORKSPACE_CONTAINS_BUILD_FILES: string = "java:workspaceContainsBuildFiles";
+    export const SHOW_DEPRECATED_TASKS: string = "java:showDeprecatedTasks";
 }
 
 export namespace Explorer {
